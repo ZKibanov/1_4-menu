@@ -47,7 +47,7 @@ body {
     height: 100%;
 }
 
-.menu-body{
+.sidebar-menu-body{
     font-family: "TT Lakes", "Arial", "Roboto Light",sans-serif ;
     font-weight: 400;
     font-size:16px;
@@ -58,9 +58,10 @@ body {
     flex-direction: column;
     height: 100%;
     box-shadow: -2px 0px 4px rgba(69, 79, 126, 0.02), 16px 0px 52px rgba(14, 24, 80, 0.2);
+    min-height: 100vh;
 }
 
-.menu__header {
+.sidebar-menu__header {
     margin: 0;
     padding: 16px;
     display: flex;
@@ -75,14 +76,17 @@ body {
     flex-basis: auto;
     margin-left:0;
 }
+
+.menu__list_positioner {
+    flex-grow: 10;
+}
+
 .menu__list {
     display: flex;
-    flex-grow: 10;
-    flex-basis: auto;
     flex-direction: column;
     justify-content: flex-start;
 }
-.menu__link, .language-panel__item {
+.menu__link, .language-panel__item , .language-panel__link{
     text-decoration: none;
     color: #1B1C21;
     line-height: 24px;
@@ -92,10 +96,26 @@ body {
     margin: 16px;
 }
 
-.chosen {
-    filter: opacity(50%);
+.menu__item:hover:after, .menu__item:focus:after {
+    content: 'a';
+    font-size: 0px;
+    display: block;
+    min-height: 40px;
+    min-width:5px;
+    position: absolute;
+    top:-8px;
+    left: -16px;
+    background-image: url("./images/highlight.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
 }
 
+.menu__item:hover, .menu__item:focus {
+    filter: opacity(50%);
+    position: relative;
+}
+
+/*
 .menu__link_chosen {
     background-image: url("./images/highlight.svg");
     background-repeat: no-repeat;
@@ -103,6 +123,11 @@ body {
     margin: -16px;
     padding: 16px;
 }
+
+.chosen {
+    filter: opacity(50%);
+}
+ */
 
 .button {
     border: 0;
@@ -115,20 +140,21 @@ body {
 }
 
 .button--phone {
-    margin-left:16px;
     background-image: url("./images/phone.svg");
 }
 
 .button--chat {
-    margin-left:16px;
     background-image: url("./images/chat.svg");
 }
 
 .button--contacts {
-    margin-left:16px;
+
     background-image: url("./images/path.svg");
 }
 
+.contact-list__button {
+    margin-left:16px;
+}
 .button--close {
     background-image: url("./images/close.svg");
 }
@@ -154,17 +180,24 @@ body {
 }
 
 .phone-number {
-    margin-left: 16px;
-    margin-top: 12px;
     text-decoration: none;
     font-weight: bold;
     font-size: 24px;
     color: #1B1C21;
 }
 
-.email-address {
-    margin-top: 16px;
+.menu__phone-number {
     margin-left: 16px;
+    margin-top: 12px;
+}
+
+.email-address {
     text-decoration: none;
     color: #1B1C21;
 }
+
+.menu__email-address {
+    margin-top: 16px;
+    margin-left: 16px;
+}
+
