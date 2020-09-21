@@ -94,9 +94,11 @@ body {
 
 .menu__item {
     margin: 16px;
+    opacity: 1;
 }
 
-.menu__item:hover:after, .menu__item:focus:after {
+.menu__item:after, .menu__item:after {
+    opacity: 0;
     content: 'a';
     font-size: 0px;
     display: block;
@@ -110,9 +112,15 @@ body {
     background-position: left center;
 }
 
+.menu__item:hover:after, .menu__item:focus:after {
+    opacity: 1;
+    transition: all 0.8s ease;
+}
+
 .menu__item:hover, .menu__item:focus {
-    filter: opacity(50%);
+    opacity:0.5;
     position: relative;
+    transition: all 0.8s ease;
 }
 
 /*
